@@ -17,9 +17,13 @@ export default function Create() {
     setError('');
     setMessage('');
 
-    axios.post(`http://localhost:3001/createUser`, contact)
+    console.log(contact);
+
+    axios.post(`http://localhost:3000/api/v1/contactapp/contact/add`, contact)
     .then(response => {
-      if (response.status === 201) {
+      if (!response) {
+        console.log("Action Failed")
+      }else{
         setMessage(response.data.message);
         
         setTimeout(() => {
@@ -83,7 +87,7 @@ export default function Create() {
             />
           </div>
           
-          <button type="submit" className="mt-5 py-3 px-6 bg-slate-600 text-white rounded-lg text-base">Create</button>
+          <button type="submit" className="mt-5 py-3 px-6 bg-green-500 text-white rounded-lg text-base">Create</button>
           {message && <p className="bg-green-200 text-green-900 p-5 rounded-lg">{message}</p>}
           {error && <p className="bg-red-200 text-red-900 p-5 rounded-lg">{error}</p>}
         </form>

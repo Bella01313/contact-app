@@ -18,11 +18,11 @@ const Navigation = () => {
   }, [])
 
   return (
-    <nav className="w-full bg-slate-400 flex flex-col justify-center items-center">
+    <nav className="w-full bg-green-400 flex flex-col justify-center items-center">
       <div className="md:max-w-4xl w-11/12 flex justify-between py-2 items-center">
         <h1><Link className='cursor-pointer text-3xl font-bold'>Contacts</Link></h1>
         <NavLink to={'/'} className='cursor-pointer'>Home</NavLink>
-        <div className="flex gap-3 items-center bg-slate-500 px-2 py-1 rounded-xl">
+        <div className="flex gap-3 items-center bg-green-500 px-2 py-1 rounded-xl">
           <FaRegUserCircle className="text-4xl" />
           <Link to={'/account'}>
             <p className="text-white">{userInfo?.fullName} {userInfo?.lastName}</p>

@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 function Signin() {
-    const [name , setName] = useState()
     const [email , setEmail] = useState()
     const [password , setPassword] = useState()
     const navigate =  useNavigate()
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:3001/login', {email,password})
+        axios.post('http://localhost:3000/api/v1/contactapp/auth/signin', {email,password})
         .then(result => {console.log(result)
-            if(result.data === "Success"){
-                navigate('/home')
+            if(result.data){
+                navigate('/')
             }
         })
         .catch(err => console.log(err))

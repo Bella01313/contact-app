@@ -23,15 +23,11 @@ const More = () => {
 
     setError('');
     setMessage('');
-
-    axios.delete(`http://localhost:3000/api/v1/contactapp/delete?id=${params.contactId}`, contact)
+    axios.delete(`http://localhost:3000/api/v1/contactapp/contact/delete?id=${params.contactId}`, contact)
     .then(response => {
-      if (response.status === 200) {
+      if (response.status) {
         setMessage(response.data.message);
-        
-        setTimeout(() => {
-          navigate('/');
-        }, 3000);
+        navigate("/");
       }
     })
     .catch(err => { 
@@ -48,7 +44,7 @@ const More = () => {
         <div className="flex w-full justify-between mt-5">
           <h1 className="text-3xl mb-3 font-semibold">{contact.fullName}</h1>
           <div className="flex gap-4">
-            <button onClick={() => navigate(`/update/${contact._id}`)} className="py-3 px-6 bg-slate-600 text-white rounded-lg text-base">Update</button>
+            <button onClick={() => navigate(`/update/${contact._id}`)} className="py-3 px-6 bg-green-600 text-white rounded-lg text-base">Update</button>
             <button type="button" onClick={deleteContact} className="py-3 px-6 bg-red-600 text-white rounded-lg text-base">Delete</button>
           </div>
         </div>

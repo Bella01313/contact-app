@@ -12,7 +12,7 @@ export default function Update() {
 
   // Fetch data
   useEffect(() => {
-    axios.get(`http://localhost:3001/getUser/findById?id=${params.contactId}`)
+    axios.get(`http://localhost:3000/api/v1/contactapp/contact/findById?id=${params.contactId}`)
       .then(response => {
         setContact(response.data.contact);
       })
@@ -26,7 +26,7 @@ export default function Update() {
     setError('');
     setMessage('');
 
-    axios.put(`http://localhost:3001/updateUser/update?id=${params.contactId}`, contact)
+    axios.put(`http://localhost:3000/api/v1/contactapp/contact/update?id=${params.contactId}`, contact)
     .then(response => {
       if (response.status === 200) {
         setMessage(response.data.message);
@@ -95,7 +95,7 @@ export default function Update() {
             />
           </div>
           
-          <button type="submit" className="mt-5 py-3 px-6 bg-slate-600 text-white rounded-lg text-base">Update</button>
+          <button type="submit" className="mt-5 py-3 px-6 bg-green-600 text-white rounded-lg text-base">Update</button>
           {message && <p className="bg-green-200 text-green-900 p-5 rounded-lg">{message}</p>}
           {error && <p className="bg-red-200 text-red-900 p-5 rounded-lg">{error}</p>}
         </form>

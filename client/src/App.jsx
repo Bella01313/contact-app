@@ -13,12 +13,12 @@ const App = () =>{
    <Router>
     <Routes>
        {/* Authentication pages */}
-       <Route path='/register' element={<Signup />} />
+       <Route path='/' element={<Signup />} />
        <Route path='/login' element={!userToken ? <Signin /> : <Navigate replace to={'/'} />} />
-       <Route path='/home' element= {<Home/>}/>
+       {/* <Route path='/home' element= {<Home/>}/> */}
         {/* Other pages  */}
         <Route path='/' element={<MainPage />}>
-        <Route path='' element={<Home />} />
+        <Route path='/home' element={<Home />} />
           <Route path='/update/:contactId' element={<Update />} />
           <Route path='/add' element={<Create />} />
           <Route path='/more/:contactId' element={<More />} />
