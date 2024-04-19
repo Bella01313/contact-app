@@ -27,7 +27,7 @@ const More = () => {
     .then(response => {
       if (response.status) {
         setMessage(response.data.message);
-        navigate("/");
+        navigate("/home");
       }
     })
     .catch(err => { 

@@ -11,7 +11,7 @@ function Signin() {
         axios.post('http://localhost:3000/api/v1/contactapp/auth/signin', {email,password})
         .then(result => {console.log(result)
             if(result.data){
-                navigate('/')
+                navigate('/home')
             }
         })
         .catch(err => console.log(err))

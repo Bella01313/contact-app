@@ -27,7 +27,7 @@ export default function Create() {
         setMessage(response.data.message);
         
         setTimeout(() => {
-          navigate('/');
+          navigate('/home');
         }, 3000);
       }
     })
